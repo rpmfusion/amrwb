@@ -1,6 +1,6 @@
 Name:           amrwb
 Version:        7.0.0.3
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Adaptive Multi-Rate - Wideband (AMR-WB) Speech Codec
 Group:          System Environment/Libraries
 License:        Distributable
@@ -77,6 +77,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Jul 25 2008 Hans de Goede <j.w.r.degoede@hhs.nl> 7.0.0.3-3
+- Release bump for rpmfusion
+
 * Thu Jun 12 2008 Hans de Goede <j.w.r.degoede@hhs.nl> 7.0.0.3-2
 - Fix rpath on x86_64
 - Put tools in a seperate -tools package
