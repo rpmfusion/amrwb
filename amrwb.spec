@@ -1,6 +1,6 @@
 Name:           amrwb
 Version:        7.0.0.3
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Adaptive Multi-Rate - Wideband (AMR-WB) Speech Codec
 Group:          System Environment/Libraries
 License:        Distributable
@@ -37,6 +37,9 @@ developing applications that use %{name}.
 
 %prep
 %setup -q
+# Note we do the wget ourselves so that we can use in IP in the URL as there
+# is no /etc/resolv.conf in the buildroot
+wget ftp://195.238.226.15/Specs/archive/26_series/26.204/26204-700.zip
 
 
 %build
@@ -77,6 +80,11 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Aug 16 2008 Hans de Goede <j.w.r.degoede@hhs.nl> 7.0.0.3-4
+- wget the needed sources in %%prep instead of letting the Makefile do it
+  so that we can use an IP address to work around there being no
+  /etc/resolv.conf in the buildroot
+
 * Fri Jul 25 2008 Hans de Goede <j.w.r.degoede@hhs.nl> 7.0.0.3-3
 - Release bump for rpmfusion
 
