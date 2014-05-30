@@ -1,12 +1,11 @@
 Name:           amrwb
-Version:        7.0.0.3
-Release:        7%{?dist}
+Version:        7.0.0.4
+Release:        1%{?dist}
 Summary:        Adaptive Multi-Rate - Wideband (AMR-WB) Speech Codec
 Group:          System Environment/Libraries
 License:        Distributable
 URL:            http://www.penguin.cz/~utx/amr
 Source0:        http://ftp.penguin.cz/pub/users/utx/amr/%{name}-%{version}.tar.bz2
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  wget unzip
 
 %description
@@ -28,7 +27,7 @@ Adaptive Multi-Rate Wideband decoding and encoding tools.
 %package        devel
 Summary:        Development files for %{name}
 Group:          Development/Libraries
-Requires:       %{name} = %{version}-%{release}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description    devel
 The %{name}-devel package contains libraries and header files for
@@ -39,7 +38,7 @@ developing applications that use %{name}.
 %setup -q
 # Note we do the wget ourselves so that we can use in IP in the URL as there
 # is no /etc/resolv.conf in the buildroot
-wget ftp://195.238.226.15/Specs/archive/26_series/26.204/26204-700.zip
+wget ftp://195.238.226.35/Specs/archive/26_series/26.204/26204-700.zip
 
 
 %build
@@ -50,13 +49,8 @@ make %{?_smp_mflags}
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 find $RPM_BUILD_ROOT -name '*.la' -exec rm -f {} ';'
-
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 
 %post -p /sbin/ldconfig
@@ -65,21 +59,22 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %files
-%defattr (-,root,root,-)
 %doc AUTHORS ChangeLog COPYING NEWS README TODO readme.txt
 %{_libdir}/*.so.*
 
 %files tools
-%defattr (-,root,root,-)
 %{_bindir}/*
 
 %files devel
-%defattr (-,root,root,-)
 %{_includedir}/amrwb
 %{_libdir}/*.so
 
 
 %changelog
+* Fri May 30 2014 Hans de Goede <j.w.r.degoede@gmail.com> - 7.0.0.4-1
+- New upstream release 7.0.0.4
+- Fix FTBFS (rf#3243)
+
 * Tue Mar 12 2013 Nicolas Chauvet <kwizart@gmail.com> - 7.0.0.3-7
 - https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
 
