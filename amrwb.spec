@@ -8,6 +8,7 @@ URL:            http://www.penguin.cz/~utx/amr
 Source0:        http://ftp.penguin.cz/pub/users/utx/amr/%{name}-%{version}.tar.bz2
 Source1:        http://www.3gpp.org/ftp/Specs/archive/26_series/26.204/26204-b00.zip
 BuildRequires:  unzip
+BuildRequires:  gcc-c++
 
 %description
 Adaptive Multi-Rate Wideband decoder and encoder library.
