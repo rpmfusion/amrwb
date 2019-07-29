@@ -7,6 +7,7 @@ License:        Distributable
 URL:            http://www.penguin.cz/~utx/amr
 Source0:        http://ftp.penguin.cz/pub/users/utx/amr/%{name}-%{version}.tar.bz2
 Source1:        http://www.3gpp.org/ftp/Specs/archive/26_series/26.204/26204-b00.zip
+%{?_with_nosrc_rpm:NoSource: 1}
 BuildRequires:  unzip
 BuildRequires:  gcc-c++
 
