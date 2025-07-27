@@ -1,6 +1,6 @@
 Name:           amrwb
 Version:        11.0.0.0
-Release:        21%{?dist}
+Release:        22%{?dist}
 Summary:        Adaptive Multi-Rate - Wideband (AMR-WB) Speech Codec
 Group:          System Environment/Libraries
 License:        Distributable
@@ -73,6 +73,9 @@ find $RPM_BUILD_ROOT -name '*.la' -exec rm -f {} ';'
 
 
 %changelog
+* Sun Jul 27 2025 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 11.0.0.0-22
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_43_Mass_Rebuild
+
 * Wed Jan 29 2025 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 11.0.0.0-21
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_42_Mass_Rebuild
 
